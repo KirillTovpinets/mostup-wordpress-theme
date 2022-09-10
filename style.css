@@ -3280,7 +3280,7 @@
 body p {
   font-weight: lighter;
 }
-.header {
+.header:not(.page-header) {
   height: 120vh;
   position: relative;
 }
@@ -3305,7 +3305,7 @@ body p {
   color: #fff;
   z-index: 10;
 }
-.header:before {
+.header:not(.page-header):before {
   content: "";
   display: block;
   position: absolute;
@@ -3339,6 +3339,43 @@ body p {
 .header .navbar .title {
   color: #fff;
 }
+.page-header .page-banner{
+  height: 100vh;
+  overflow: hidden;
+}
+.page-header .single-banner{
+  height: 300px;
+}
+
+.single-banner{
+  background: url('assets/img/banner.jpg');
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.single-banner::before{
+  content: '';
+  width: 100%;
+  height:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  background-color: #000;
+  opacity: .5;
+}
+.single-banner .single-title{
+  color: #fff;
+  z-index: 1;
+}
+.page-content{
+  padding: 80px 0px;
+}
 .main-content .section {
   padding-bottom: 30px;
 }
@@ -3362,7 +3399,8 @@ body p {
   margin-bottom: 3rem;
 }
 .main-content .section.featured-shows,
-.main-content .section.our-actors {
+.main-content .section.our-actors,
+.main-content .section-dark .section__title-stripe {
   background-color: #010101;
   color: #fff;
 }

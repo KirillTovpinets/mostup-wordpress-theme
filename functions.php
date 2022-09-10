@@ -124,22 +124,40 @@ function mostup_our_plays_post_type() {
 }
 add_action('init', 'mostup_our_plays_post_type');
 
-function mostup_gallerea_type() {
-    register_post_type('gallerea',
+function mostup_cources_post_type() {
+    register_post_type('cources',
         array(
             'labels'      => array(
-                'name'          => 'Галлерея', 'textdomain',
-                'singular_name' => 'Фотография',
+                'name'          => 'Обучающие курсы', 'textdomain',
+                'singular_name' => 'Курс',
                 'add_new' => 'Добавить',
-                'add_new_item' => 'Добавить фотографию'
+                'add_new_item' => 'Добавить курс'
             ),
             'public'      => true,
             'has_archive' => true,
-            'supports' => array( 'title', 'thumbnail', 'custom-fields'),
+            'show_in_rest' => true,
+            'supports' => array( 'title', 'thumbnail','editor', 'custom-fields'),
         )
     );
 }
-add_action('init', 'mostup_gallerea_type');
+add_action('init', 'mostup_cources_post_type');
+
+function mostup_testimonials_post_type() {
+    register_post_type('testimonial',
+        array(
+            'labels' => array(
+                'name' => 'Отзывы', 'textdomain',
+                'singular_name' => 'Отзыв',
+                'add_new' => 'Добавить',
+                'add_new_item' => 'Добавить отзыв'
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports' => array( 'title','editor'),
+        )
+    );
+}
+add_action('init', 'mostup_testimonials_post_type');
 
 function team_member_list(){
 	$args = array(  
@@ -165,6 +183,18 @@ function our_plays_list(){
     $our_plays = new WP_Query( $args ); 
 }
 
+function testimonial_list(){
+	$args = array(  
+        'post_type' => 'testimonial',
+		'posts_per_page' => -1,
+		'order_by' => 'id',
+		'order' => 'ASC'
+    );
+
+	global $testimonials;
+    $testimonials = new WP_Query( $args ); 
+}
+
 function coming_soon_list(){
 	$args = array(  
         'post_type' => 'coming_soon',
@@ -175,6 +205,18 @@ function coming_soon_list(){
 
 	global $coming_soon;
     $coming_soon = new WP_Query( $args ); 
+}
+
+function cources_list(){
+    $args = array(
+        'post_type' => 'cources',
+        'posts_per_page' => -1,
+        'order_by' => 'id',
+        'order' => 'ASC'
+    );
+
+    global $cources;
+    $cources = new WP_Query($args);
 }
 
 function add_additional_class_on_li($classes, $item, $args) {

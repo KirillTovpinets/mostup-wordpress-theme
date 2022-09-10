@@ -1,17 +1,22 @@
 <?php get_header(); ?>
-
+<header class="header" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/front-image.jpg'); background-size: cover; background-position: 50%;">
+  <div class="theater-title">
+    <h1 class="theater-title__title">МОСТ UP</h1>
+    <span class="theater-title__subtitle">театр студия</span>
+  </div>
+    <?php get_template_part('template-parts/navbar'); ?>
+</header>
 <main class="main-content">
       <section class="get-ticket section">
         <div class="container">
           <div class="get-ticket__row d-flex justify-content-between">
             <div class="get-ticket__text-container">
-              <span class="get-ticket__title">Заказ билетов</span>
+              <span class="get-ticket__title">Присоединиться к нам</span>
               <p class="get-ticket__description">
-                Вы можете выбрать спектакть и дату, когда вы хотите посмотреть
-                его
+                Вы можете зарегистрироваться в системе для получения доступка к прямой трансляции спектаклей
               </p>
             </div>
-            <button class="btn btn-warning my-auto btn-lg">Заказать</button>
+            <button class="btn btn-warning my-auto btn-lg">Присоединиться</button>
           </div>
         </div>
       </section>
@@ -37,6 +42,16 @@
             задуманное. Спектакль - это своего рода притча, которая учит,
             наставляет, обличает.
           </p>
+        </div>
+      </section>
+      <section class="section gallery pb-0 section-dark">
+        <h3 class="section__title-stripe">Обучающие курсы</h3>
+        <div class="row m-0 gallery__row">
+          <?php
+              cources_list();
+              while ( $cources->have_posts() ) : $cources->the_post(); ?>
+              <?php get_template_part('/template-parts/cource'); ?>
+          <?php endwhile; ?>
         </div>
       </section>
       <section class="section featured-shows">
@@ -85,107 +100,15 @@
         </div>
       </section>
       
-      <section class="section gallery pb-0">
-        <h3 class="section__title-stripe">Галерея</h3>
-        <div class="row m-0 gallery__row">
-          <div class="col-md-3 gallery__photo p-0">
-            <a class="gallery__photo__title">
-              <h5 class="gallery__photo__title__content">
-                10 лет театру Мост UP
-              </h5>
-            </a>
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/img/gallery-photo.jpg"
-              alt=""
-              class="gallery__photo__item"
-            />
-          </div>
-          <div class="col-md-3 gallery__photo p-0">
-            <a class="gallery__photo__title">
-              <h5 class="gallery__photo__title__content">
-                10 лет театру Мост UP
-              </h5>
-            </a>
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/img/gallery-photo.jpg"
-              alt=""
-              class="gallery__photo__item"
-            />
-          </div>
-          <div class="col-md-3 gallery__photo p-0">
-            <a class="gallery__photo__title">
-              <h5 class="gallery__photo__title__content">
-                10 лет театру Мост UP
-              </h5>
-            </a>
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/img/gallery-photo.jpg"
-              alt=""
-              class="gallery__photo__item"
-            />
-          </div>
-          <div class="col-md-3 gallery__photo p-0">
-            <a class="gallery__photo__title">
-              <h5 class="gallery__photo__title__content">
-                10 лет театру Мост UP
-              </h5>
-            </a>
-            <img
-              src="<?php echo get_template_directory_uri(); ?>/assets/img/gallery-photo.jpg"
-              alt=""
-              class="gallery__photo__item"
-            />
-          </div>
-        </div>
-      </section>
       <section class="section testimonials">
         <div class="container">
           <div class="dots-container"></div>
           <div class="testimonials-slider">
-            <blockquote class="testimonials__container">
-              <div class="testimonials__container__item">
-                <p class="testimonials__container__item__content">
-                  Actors are able to play any character precisely because they
-                  themselves are completely deprived of it.
-                </p>
-              </div>
-              <cite class="testimonials__container__author"
-                >Кирилл Товпинец</cite
-              >
-            </blockquote>
-            <blockquote class="testimonials__container">
-              <div class="testimonials__container__item">
-                <p class="testimonials__container__item__content">
-                  Actors are able to play any character precisely because they
-                  themselves are completely deprived of it.
-                </p>
-              </div>
-              <cite class="testimonials__container__author"
-                >Кирилл Товпинец</cite
-              >
-            </blockquote>
-            <blockquote class="testimonials__container">
-              <div class="testimonials__container__item">
-                <p class="testimonials__container__item__content">
-                  Actors are able to play any character precisely because they
-                  themselves are completely deprived of it.
-                </p>
-              </div>
-              <cite class="testimonials__container__author"
-                >Кирилл Товпинец</cite
-              >
-            </blockquote>
-            <blockquote class="testimonials__container">
-              <div class="testimonials__container__item">
-                <p class="testimonials__container__item__content">
-                  Actors are able to play any character precisely because they
-                  themselves are completely deprived of it.
-                </p>
-              </div>
-              <cite class="testimonials__container__author"
-                >Кирилл Товпинец</cite
-              >
-            </blockquote>
+            <?php
+              testimonial_list();
+             while ( $testimonials->have_posts() ) : $testimonials->the_post(); ?>
+              <?php get_template_part('/template-parts/testimonials'); ?>
+            <?php endwhile; ?>
           </div>
         </div>
       </section>
