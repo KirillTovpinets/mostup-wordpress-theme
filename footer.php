@@ -1,73 +1,42 @@
+<?php $options = get_option("mostup_options"); ?>
 <footer class="footer">
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
-            <h5 class="block-title">Контакты</h5>
-            <ul class="list">
-              <li>
-                <i class="fas fa-map-pin"></i
-                ><span>Проспект Пушкина 29, 137</span>
-              </li>
-              <li>
-                <i class="fas fa-at"></i
-                ><span>kirill.tovpinets@icloud.com</span>
-              </li>
-              <li>
-                <i class="fas fa-map"></i><span>Проспект Пушкина 29, 137</span>
-              </li>
-              <li>
-                <i class="fas fa-map"></i><span>Проспект Пушкина 29, 137</span>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <h5 class="block-title">Адрес</h5>
             <ul class="list">
               <li>
-                <i class="fas fa-map-pin"></i
-                ><span>Проспект Пушкина 29, 137</span>
-              </li>
-              <li>
                 <i class="fas fa-at"></i
-                ><span>kirill.tovpinets@icloud.com</span>
-              </li>
-              <li>
-                <i class="fas fa-map"></i><span>Проспект Пушкина 29, 137</span>
-              </li>
-              <li>
-                <i class="fas fa-map"></i><span>Проспект Пушкина 29, 137</span>
+                ><a href="mailto:kirill.tovpinets@icloud.com">kirill.tovpinets@icloud.com</a>
               </li>
             </ul>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <h5 class="block-title">Контакты</h5>
             <ul class="list">
-              <li><i class="fas fa-phone"></i> +375 29 853 75 96</li>
-              <li><i class="fas fa-phone"></i> kirill.tovpinets@icloud.com</li>
+              <li><i class="fas fa-phone"></i> <a href="tel:<?php echo $options['mostup_phone']; ?>"><?php echo $options['mostup_phone']; ?></a></li>
+              <li><i class="fas fa-envelope"></i> <a href="mailto:<?php echo $options['mostup_email']; ?>"><?php echo $options['mostup_email']; ?></a></li>
             </ul>
             <ul class="list social-icons">
               <li class="social-icon">
-                <a href="http://vk.com"><i class="fab fa-vk fa-2x"></i></a>
+                <a href="<?php echo $options['mostup_vk']; ?>"><i class="fab fa-vk fa-2x"></i></a>
               </li>
               <li class="social-icon">
-                <a href="http://vk.com"
+                <a href="<?php echo $options['mostup_facebook']; ?>"
                   ><i class="fab fa-facebook-f fa-2x"></i
                 ></a>
               </li>
               <li class="social-icon">
-                <a href="http://vk.com"
+                <a href="<?php echo $options['mostup_instagram']; ?>"
                   ><i class="fab fa-instagram fa-2x"></i
                 ></a>
               </li>
             </ul>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-4">
             <h5 class="block-title">Информация</h5>
             <ul class="list">
-              <li>Карта сайта</li>
-              <li>Политика конфиденциальности</li>
-              <li>Список мероприятий</li>
-              <li>Что-нибудь ещё</li>
+              <li><a href="<?php echo get_permalink(104); ?>">Карта сайта</a></li>
             </ul>
           </div>
         </div>

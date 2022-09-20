@@ -10,8 +10,6 @@
     <div class="page-content">
       <?php the_content(); ?>
     </div>
-    <h5>Отправить заявку на обучающий курс</h5>
-    <?php echo do_shortcode('[contact-form-7 id="97" title="Записаться на курс"]'); ?>
   </div>
   
 </div>

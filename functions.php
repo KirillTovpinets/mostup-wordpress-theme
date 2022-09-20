@@ -83,6 +83,7 @@ function mostup_team_member_post_type() {
                 'add_new_item' => 'Добавить актёра'
             ),
             'public'      => true,
+            'menu_icon' => 'dashicons-groups',
             'has_archive' => true,
             'supports' => array( 'title', 'thumbnail', 'custom-fields'),
         )
@@ -97,8 +98,9 @@ function mostup_comming_soon_type() {
                 'name'          => 'Гастроли', 'textdomain',
                 'singular_name' => 'Спектакль',
                 'add_new' => 'Добавить',
-                'add_new_item' => 'Добавить спектакль'
+                'add_new_item' => 'Добавить спектакль',
             ),
+            'menu_icon' => 'dashicons-calendar',
             'public'      => true,
             'has_archive' => true,
             'supports' => array( 'title', 'thumbnail', 'custom-fields'),
@@ -117,8 +119,10 @@ function mostup_our_plays_post_type() {
                 'add_new_item' => 'Добавить спектакль'
             ),
             'public'      => true,
+            'menu_icon' => 'dashicons-smiley',
             'has_archive' => true,
-            'supports' => array( 'title', 'thumbnail', 'custom-fields'),
+            'show_in_rest' => true,
+            'supports' => array( 'title', 'thumbnail', 'editor', 'custom-fields'),
         )
     );
 }
@@ -136,6 +140,7 @@ function mostup_cources_post_type() {
             'public'      => true,
             'has_archive' => true,
             'show_in_rest' => true,
+            'menu_icon' => 'dashicons-welcome-learn-more',
             'supports' => array( 'title', 'thumbnail','editor', 'custom-fields'),
         )
     );
@@ -154,6 +159,7 @@ function mostup_testimonials_post_type() {
             'public'      => true,
             'has_archive' => true,
             'supports' => array( 'title','editor'),
+            'menu_icon' => 'dashicons-testimonial',
         )
     );
 }
@@ -234,3 +240,11 @@ function add_menu_link_class( $atts, $item, $args ) {
 	return $atts;
   }
   add_filter( 'nav_menu_link_attributes', 'add_menu_link_class', 1, 3 );
+
+require('custom-settings.php');
+
+function modify_read_more_link() {
+    return '<a class="more-link" href="' . get_permalink() . '">подробнее...</a>';
+   }
+add_filter( 'the_content_more_link', 'modify_read_more_link' );
+?>

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" href="<?php echo site_url(); ?>">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/img/logo.png" alt="логотип мост up">
     </a>
     <h2 class="title">Театр-студия</h2>

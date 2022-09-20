@@ -2,7 +2,7 @@
 <header class="header" style="background-image: url('<?php echo get_template_directory_uri(); ?>/assets/img/front-image.jpg'); background-size: cover; background-position: 50%;">
   <div class="theater-title">
     <h1 class="theater-title__title">МОСТ UP</h1>
-    <span class="theater-title__subtitle">театр студия</span>
+    <span class="theater-title__subtitle">театр-студия</span>
   </div>
     <?php get_template_part('template-parts/navbar'); ?>
 </header>
@@ -34,7 +34,7 @@
         <div class="container">
           <h2 class="welcome__title">
             Добро пожаловать <br />
-            в христианский театр
+            в христианский театр-студию
           </h2>
           <p class="welcome__text">
             Мы иллюстрируем духовные истины, взятые из Библии, на сцене. Вместе
@@ -54,7 +54,8 @@
           <?php endwhile; ?>
         </div>
       </section>
-      <section class="section featured-shows">
+      <?php coming_soon_list(); ?>
+      <section class="section featured-shows <?php echo $coming_soon->have_posts() ? '' : 'section-light'; ?>">
         <div class="container-fluid">
           <h3 class="section__title">Наши спектакли</h3>
           <div class="section__divider">
@@ -69,6 +70,7 @@
           </div>
         </div>
       </section>
+      <?php if($coming_soon->have_posts()) : ?>
       <section class="section upcoming-events">
         <div class="container">
           <h3 class="section__title">Уже скоро</h3>
@@ -77,13 +79,13 @@
           </div>
           <div class="upcoming-events__events-container">
             <?php
-                  coming_soon_list();
                   while ( $coming_soon->have_posts() ) : $coming_soon->the_post(); ?>
                   <?php get_template_part('/template-parts/coming_soon'); ?>
               <?php endwhile; ?>
           </div>
         </div>
       </section>
+      <?php endif; ?>
       <section class="section our-actors">
         <div class="container-fluid">
           <h3 class="section__title">Наша команда</h3>

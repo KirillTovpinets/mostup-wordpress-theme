@@ -14,12 +14,12 @@
         <?php the_title(); ?>
     </h4>
     <span class="show-item__description__type">Спектакль</span>
-    <!-- <div class="d-flex justify-content-between align-items-center">
+    <div class="d-flex justify-content-between align-items-center">
         <a
-        href="<?php get_permalink( the_ID() ); ?>"
+        href="<?php the_permalink(); ?>"
         class="btn btn-warning show-item__description__read-more my-auto btn-sm"
         >Подробнее</a
         >
-    </div> -->
+    </div>
     </div>
 </article>
